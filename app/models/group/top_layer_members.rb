@@ -5,7 +5,15 @@
 #  or later. See the COPYING file at the top-level directory or at
 #  https://github.com/hitobito/hitobito_generic.
 
-# Addressverwaltung. Additional role to manager addresses
-class Role::AddressAdmin < ::Role
-  self.permissions = [:group_full]
+class Group::TopLayerMembers < Group::Members
+
+  children Group::TopLayerMembers
+
+  class ActiveMember < Role::ActiveMember
+  end
+
+  class PassiveMember < Role::PassiveMember
+  end
+
+  roles ActiveMember, PassiveMember
 end

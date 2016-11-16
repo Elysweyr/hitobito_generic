@@ -5,15 +5,18 @@
 #  or later. See the COPYING file at the top-level directory or at
 #  https://github.com/hitobito/hitobito_generic.
 
-class Group::Basic < Group
-
-  class Leader < Role::Leader
-    self.permissions = [:group_full, :contact_data]
+class Group::TopLayerBoard < Group::Board
+  class President < Role::BoardPresident
   end
 
-  class Member < Role::Member
-    self.permissions = [:group_read]
+  class VicePresident < Role::BoardVicePresident
   end
 
-  roles Leader, Member
+  class Secretary < Role::BoardSecretary
+  end
+
+  class Member < Role::BoardMember
+  end
+
+  roles President, VicePresident, Secretary, Member
 end

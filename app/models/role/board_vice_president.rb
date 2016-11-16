@@ -5,21 +5,6 @@
 #  or later. See the COPYING file at the top-level directory or at
 #  https://github.com/hitobito/hitobito_generic.
 
-class Group::Layer < Group
-
-  self.layer = true
-  self.event_types = [Event, Event::Course]
-  self.default_children = [Group::Board]
-
-  children Group::Layer, Group::Board
-
-
-  class Leader < Role::Leader
-  end
-
-  class Member < Role::Member
-  end
-
-  roles Leader, Member
-
+class Role::BoardVicePresident < Role
+  self.permissions = [:layer_full, :contact_data]
 end

@@ -5,17 +5,19 @@
 #  or later. See the COPYING file at the top-level directory or at
 #  https://github.com/hitobito/hitobito_generic.
 
-module Group::Generic
-  extend ActiveSupport::Concern
+class Group::LocalMembers < Group::Members
 
-  included do
-    # define global roles before children
-    # roles Role::AddressAdmin,
-    #       Role::DispatchAddress,
-    #       Role::External
+  children Group::LocalMembers
 
-    # define global children
-
-    root_types Group::TopLayer
+  class Leader < Role::Leader
   end
+
+  class ActiveMember < Role::ActiveMember
+    self.permissions =  [:group_and_below_read]
+  end
+
+  class PassiveMember < Role::PassiveMember
+  end
+
+  roles Leader, ActiveMember, PassiveMember
 end
