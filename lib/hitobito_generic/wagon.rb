@@ -18,6 +18,10 @@ module HitobitoGeneric
     config.to_prepare do
       # extend application classes here
       Group.send :include, Group::Generic
+
+      if Delayed::Job.table_exists?
+        ReseedJob.new.schedule if ENV['DEMO_INSTANCE'] == '1'
+      end
     end
 
     initializer 'hitobito_generic.add_settings' do |_app|
