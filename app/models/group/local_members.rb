@@ -16,12 +16,21 @@ class Group::LocalMembers < Group::Members
     self.permissions =  [:group_and_below_read]
   end
 
+  class SupportingMember < Role::SupportingMember
+    self.permissions =  [:group_and_below_read]
+  end
+
+  class PastMember < Role::PastMember
+  end
+
   class PassiveMember < Role::PassiveMember
   end
+
 
   class AddressManager < Role::AddressManager
   end
 
   self.default_role = ActiveMember
-  roles Leader, AddressManager, ActiveMember, PassiveMember
+  roles Leader, AddressManager, ActiveMember, PassiveMember, SupportingMember, PastMember
 end
+

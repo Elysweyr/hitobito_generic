@@ -8,11 +8,11 @@ de:
     models:
       group/top_layer: Hauptebene
       group/region:
-        one: "Region/Kanton"
-        other: "Regionen/Kantone"
+        one: "Bundesland"
+        other: "Bundesländer"
       group/local:
-        one: "Lokalgruppe/Sektion"
-        other: "Lokalgruppen/Sektionen"
+        one: "Sektion"
+        other: "Sektionen"
       group/board:
         one: Vorstand
         other: Vorstände
@@ -28,9 +28,9 @@ de:
       group/committee:
         one: "Gremium/Projektgruppe"
         other: "Gremien/Projektgruppen"
-      group/top_layer/administrator: Administrator
-      group/region/administrator: Administrator
-      group/local/main_leader: Hauptleitung
+      group/top_layer/administrator: "Administrator_in"
+      group/region/administrator: "Administrator_in"
+      group/local/main_leader: "Vorsitzende_r"
       group/local/address_manager: Adressverwaltung
 
 
@@ -40,11 +40,13 @@ de:
       role/committee_member: Mitglied
       role/active_member: Aktivmitglied
       role/passive_member: Passivmitglied
+      role/supporting_member: "Fördermitglied"
+      role/past_member: "Ehemaliges Mitglied"
       role/office_manager: Leitung
       role/office_staff: Mitglied
       role/leader: Leitung
-      role/board_president: Präsident
-      role/board_vice_president: Vizepräsident
-      role/board_secretary: Sekretär(in)
+      role/board_president: Vorsitzende_r
+      role/board_vice_president: "stlv. Vorsitzende_r"
+      role/board_secretary: "Sekretär_in"
       role/board_member: Vorstandsmitglied
-      role/treasurer: Kassier
+      role/treasurer: "Kassier_in"

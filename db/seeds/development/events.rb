@@ -7,15 +7,7 @@
 
 require Rails.root.join('db', 'seeds', 'support', 'event_seeder')
 
-srand(42)
 
-seeder = EventSeeder.new
-
-seeder.course_group_ids.each do |group_id|
-  10.times do
-    seeder.seed_event(group_id, :course)
-    seeder.seed_event(group_id, :base)
-  end
 end
 
 

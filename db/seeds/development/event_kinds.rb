@@ -21,7 +21,7 @@ QualificationKind::Translation.seed(:qualification_kind_id, :locale,
 
   {qualification_kind_id: quali_kinds[1].id,
    locale: 'de',
-   label: 'Experte'},
+   label: 'Expert_in'},
 )
 
 event_kinds = Event::Kind.seed(:id,
@@ -40,7 +40,7 @@ Event::Kind::Translation.seed(:event_kind_id, :locale,
 
   {event_kind_id: event_kinds[1].id,
    locale: 'de',
-   label: 'Expertenkurs',
+   label: 'Expert_innenkurs',
    short_name: 'EK'},
 
   {event_kind_id: event_kinds[2].id,

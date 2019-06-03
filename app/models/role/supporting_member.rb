@@ -5,7 +5,6 @@
 #  or later. See the COPYING file at the top-level directory or at
 #  https://github.com/hitobito/hitobito_generic.
 
-Group::TopLayer.seed_once(:parent_id,
-  {name: 'Bundesorganisation',
-   short_name: 'Bundesorganisation'}
-)
+class Role::SupportingMember < Role
+  self.permissions = []
+end
