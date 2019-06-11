@@ -50,3 +50,15 @@ de:
       role/board_secretary: "Sekretär_in"
       role/board_member: Vorstandsmitglied
       role/treasurer: "Kassier_in"
+
+      payment_method:
+        available:
+          cash: "Bar"
+          sepa: "SEPA Lastschrift"
+
+    attributes:
+      person:
+        payment_method: Zahlungsart
+        iban: IBAN
+        bic: BIC
+        account_holder: Kontoinhaber
