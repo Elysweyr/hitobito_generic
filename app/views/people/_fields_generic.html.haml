@@ -1,0 +1,3 @@
+%fieldset
+  = f.labeled_collection_select :payment_method, PaymentMethod.available, :first, :last, { include_blank: true }, class: 'span6'
+  .sepa-fields= f.labeled_input_fields :iban, :bic, :account_holder
