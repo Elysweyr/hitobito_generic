@@ -33,3 +33,18 @@ root:
   company_name: 'Puzzle ITC'
   company: true
   email: <%= Settings.root_email %>
+
+with_sepa:
+  first_name: Sepa
+  last_name: Fanatic
+  payment_method: sepa
+  iban: "DE89370400440532013000"
+  bic: DEUTDEFFXXX
+  account_holder: "Sepa Fanatic"
+
+with_cash:
+  first_name: Cash
+  last_name: Convervative
+  payment_method: cash
+
+

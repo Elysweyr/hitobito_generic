@@ -3,11 +3,13 @@ module Generic::Export::Tabular::People::PeopleFull
   extend ActiveSupport::Concern
 
   included do
-    alias_method_chain :person_attributes, :payment_fields
+    alias_method_chain :person_attributes, :payment_fields_and_tags
   end
 
-  def person_attributes_with_payment_fields
-    person_attributes_without_payment_fields + [:payment_method, :iban, :bic, :account_holder]
+  def person_attributes_with_payment_fields_and_tags
+    person_attributes_without_payment_fields_and_tags - 
+      [:payment_method, :iban, :bic, :account_holder] + 
+      [:tags, :translated_payment_method, :iban, :bic, :account_holder]
   end
 end
 

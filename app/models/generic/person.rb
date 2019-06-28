@@ -7,8 +7,20 @@ module Generic::Person
     validates :bic, bic: true, allow_blank: true, :if => lambda { self.payment_method == "sepa" }
     validates_presence_of :iban, :bic, :account_holder, :if => lambda { self.payment_method == "sepa" }
 
+    def translated_payment_method
+      PaymentMethod.available[payment_method.to_sym]
+    end
+    
     def iban
       sepa? ? self[:iban] : ""
+    end
+
+    def formatted_iban
+      iban.gsub(/(.{4})/, '\1 ').strip
+    end
+
+    def iban=(value)
+      self[:iban] = value.gsub(/\s+/, "")
     end
 
     def bic
@@ -32,11 +44,9 @@ class PaymentMethod
   I18N_KEY_PREFIX = 'activerecord.models.payment_method'.freeze
 
   class << self
-
     def available
       I18n.t("#{I18N_KEY_PREFIX}.available")
     end
-
   end
 
 

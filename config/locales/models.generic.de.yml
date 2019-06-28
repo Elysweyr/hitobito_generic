@@ -58,7 +58,9 @@ de:
 
     attributes:
       person:
+        translated_payment_method: Zahlungsart
         payment_method: Zahlungsart
+        formatted_iban: IBAN
         iban: IBAN
         bic: BIC
         account_holder: Kontoinhaber
