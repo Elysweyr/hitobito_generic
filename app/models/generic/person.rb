@@ -68,19 +68,29 @@ class IbanValidator < ActiveModel::EachValidator
     end
 
     def parse_iban
-      if @matches = @value.match(/(?<country_code>[a-z]{2})(?<checksum>[0-9]{2})(?<bban>[0-9]+)/i)
+      if @matches = @value.match(/^(?<country_code>[a-z]{2})(?<checksum>[0-9]{2})(?<bban>[a-z0-9]+)/i)
         @country_code = @matches[:country_code]
         @checksum = @matches[:checksum]
         @bban = @matches[:bban]
       end
     end
 
-    def numberical_country_code
+    def numerical_country_code
       @country_code.upcase.each_char.map { |char| char.ord - 64 + 9}
     end
 
+    def numerical_bban
+      @bban.upcase.each_char.map do |char|
+        if ("0".."9").include? char
+          char.to_i
+        else
+          char.ord - 64 + 9
+        end
+      end
+    end
+
     def valid_checksum?
-      sum = [@bban, numberical_country_code, "00"].flatten.join.to_i
+      sum = [numerical_bban, numerical_country_code, "00"].flatten.join.to_i
       modulo = sum % 97
       @checksum.to_i == 98 - modulo
     end
